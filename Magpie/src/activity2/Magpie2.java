@@ -16,6 +16,7 @@ package activity2;
  * @author Mr. T
  * @version December 2016
  */
+import java.lang.String.*;
 public class Magpie2
 {
 	/**
@@ -37,7 +38,11 @@ public class Magpie2
 	public String getResponse(String statement)
 	{
 		String response = "";
-		if (statement.indexOf("no") >= 0)
+                if (statement.trim().equals(""))
+                {
+                        response = "Say something, please.";
+                }
+                else if (statement.indexOf("no") >= 0)
 		{
 			response = "Why so negative?";
 		}
@@ -47,6 +52,33 @@ public class Magpie2
 				|| statement.indexOf("brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		}
+                else if (statement.indexOf("dog") >= 0
+				|| statement.indexOf("cat") >= 0
+				|| statement.indexOf("fish") >= 0
+				|| statement.indexOf("hamster") >= 0)
+		{
+			response = "Tell me more about your pets.";
+		}
+                else if (statement.indexOf("Kurt") >= 0
+				|| statement.indexOf("Tholking") >= 0
+				|| statement.indexOf("Mr. Tholking") >= 0
+				|| statement.indexOf("Mr. T") >= 0)
+		{
+			response = "He's the compsci teacher right?";
+		}
+                else if (statement.indexOf("Hey") >= 0)
+		{
+			response = "Howdy!";
+		}
+                else if (statement.indexOf("Bye") >= 0)
+		{
+			response = "Goodbye!";
+		}
+                else if (statement.indexOf("Test") >= 0)
+                    
+		{
+			response = "Not a test.";
 		}
 		else
 		{
@@ -61,7 +93,7 @@ public class Magpie2
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 7;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -81,6 +113,18 @@ public class Magpie2
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		}
+                else if (whichResponse == 4)
+		{
+			response = "Go on.";
+		}
+                else if (whichResponse == 5)
+		{
+			response = "That's neat.";
+		}
+                else if (whichResponse == 6)
+		{
+			response = "Woah!";
 		}
 
 		return response;
